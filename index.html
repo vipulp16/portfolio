@@ -483,7 +483,7 @@
   <header>
     <nav class="nav">
       <div class="nav-left">
-        <span>Vipul Patel</span>
+        <a href="#home"><span>Vipul Patel</span></a>
       </div>
       <div class="nav-right">
         <a href="#about">About</a>
@@ -523,10 +523,10 @@
 
           <div class="hero-buttons">
             <!-- Make sure this file exists next to index.html -->
-            <a href="Vipul Patel_Resume.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+            <!-- <a href="Vipul Patel_Resume.pdf" class="btn btn-primary" target="_blank" rel="noopener">
               <span class="btn-icon">CV</span>
               <span>View Resume</span>
-            </a>
+            </a> -->
             <a href="#contact" class="btn">
               <span class="btn-icon">✉</span>
               <span>Contact Me</span>
@@ -539,8 +539,8 @@
 
           <div class="hero-meta">
             <span><strong>Current:</strong> Co-Founder & Head of Robotics · AgroPixel AI</span>
-            <span><strong>Location:</strong> Canton, Michigan, USA</span>
-            <span><strong>Focus:</strong> Autonomous robots for agriculture & real-world environments</span>
+            <!-- <span><strong>Location:</strong> Canton, Michigan, USA</span> -->
+            <!-- <span><strong>Focus:</strong> Autonomous robots for agriculture & real-world environments</span> -->
           </div>
         </div>
 
@@ -647,102 +647,153 @@
     <!-- EXPERIENCE -->
     <section id="experience">
       <h2>Experience</h2>
-      <div class="section-card two-col">
-        <div>
-          <h3>Industry Experience</h3>
-
-          <div class="timeline-item">
-            <div class="timeline-header">
-              <div class="timeline-title">Co-Founder, Head of Robotics</div>
-              <div>AgroPixel AI · Michigan, USA</div>
-            </div>
-            <div class="timeline-header" style="margin-top: 0.15rem;">
-              <div>Jul 2024 – Present</div>
-            </div>
-            <ul>
-              <li>
-                Led development and field deployment of a greenhouse mobile manipulator using xArm 7, Jetson Orin AGX,
-                ROS2 Humble, MoveIt2, RealSense/Orbbec depth cameras, hub-servo motor modules, and a custom AMR.
-              </li>
-              <li>
-                Developed ROS2 nodes in Python/C++ for motor control, RS-485/USB communication, teleoperation,
-                perception pipelines, and sensor data processing on Linux/Ubuntu systems.
-              </li>
-              <li>
-                Built depth-based perception pipelines with RealSense D435i, Orbbec Femto Bolt, and LiDAR for detection,
-                alignment, and pose estimation in real greenhouse-like environments.
-              </li>
-              <li>
-                Performed eye-in-hand and camera-to-base calibration to improve end-effector accuracy and overall
-                manipulation precision.
-              </li>
-              <li>
-                Integrated the LeRobot learning framework with ROS2/MoveIt2 to train and evaluate pick-and-place
-                policies, improving grasp success and task consistency.
-              </li>
-              <li>
-                Configured ZLAC8015D drivers, hub motors, custom grippers, and SO-100 arm hardware; executed wiring,
-                field debugging, and full electro-mechanical integration.
-              </li>
-              <li>
-                Managed and guided a three-member robotics team, coordinating development tasks and accelerating iteration
-                cycles toward deployment-ready releases.
-              </li>
-            </ul>
+      <div class="section-card">
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Co-Founder, Head of Robotics</div>
+            <div>AgroPixel AI · Michigan, USA</div>
           </div>
-
-          <div class="timeline-item">
-            <div class="timeline-header">
-              <div class="timeline-title">Robotics Research Engineer</div>
-              <div>IPS Assembly · Michigan, USA</div>
-            </div>
-            <div class="timeline-header" style="margin-top: 0.15rem;">
-              <div>Jan 2024 – May 2024</div>
-            </div>
-            <ul>
-              <li>
-                Built a dataset of 5,000+ images using RealSense D405 and supported development of an automated
-                leaf-pruning robot for hydroponic facilities with CV and ML pipelines.
-              </li>
-              <li>
-                Deployed Hello Robot’s Stretch 3 as a proof-of-concept platform using YOLOv9, Detectron2, and Deep
-                Reinforcement Learning, achieving 92% target-reach accuracy.
-              </li>
-              <li>
-                Designed an automated precision-trimming system powered by CNN-generated trim profiles to guide
-                end-effector motion.
-              </li>
-              <li>
-                Executed end-to-end experimentation, including data collection, model training, and integration with
-                control pipelines, improving crop-processing efficiency and reducing labor requirements.
-              </li>
-            </ul>
+          <div class="timeline-header" style="margin-top: 0.15rem;">
+            <div>Jul 2024 – Present</div>
           </div>
+          <ul>
+            <li>
+              Led development and field deployment of a greenhouse mobile manipulator using xArm 7, Jetson Orin AGX,
+              ROS2 Humble, MoveIt2, RealSense/Orbbec depth cameras, hub-servo motor modules, and a custom AMR.
+            </li>
+            <li>
+              Developed ROS2 nodes in Python/C++ for motor control, RS-485/USB communication, teleoperation,
+              perception pipelines, and sensor data processing on Linux/Ubuntu systems.
+            </li>
+            <li>
+              Built depth-based perception pipelines with RealSense D435i, Orbbec Femto Bolt, and LiDAR for detection,
+              alignment, and pose estimation in real greenhouse-like environments.
+            </li>
+            <li>
+              Performed eye-in-hand and camera-to-base calibration to improve end-effector accuracy and overall
+              manipulation precision.
+            </li>
+            <li>
+              Integrated the LeRobot learning framework with ROS2/MoveIt2 to train and evaluate pick-and-place
+              policies, improving grasp success and task consistency.
+            </li>
+            <li>
+              Configured ZLAC8015D drivers, hub motors, custom grippers, and SO-100 arm hardware; executed wiring,
+              field debugging, and full electro-mechanical integration.
+            </li>
+            <li>
+              Managed and guided a three-member robotics team, coordinating development tasks and accelerating iteration
+              cycles toward deployment-ready releases.
+            </li>
+          </ul>
         </div>
 
-        <div>
-          <h3>Earlier Experience</h3>
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Robotics Research Engineer</div>
+            <div>IPS Assembly · Michigan, USA</div>
+          </div>
+          <div class="timeline-header" style="margin-top: 0.15rem;">
+            <div>Jan 2024 – May 2024</div>
+          </div>
+          <ul>
+            <li>
+              Built a dataset of 5,000+ images using RealSense D405 and supported development of an automated
+              leaf-pruning robot for hydroponic facilities with CV and ML pipelines.
+            </li>
+            <li>
+              Deployed Hello Robot’s Stretch 3 as a proof-of-concept platform using YOLOv9, Detectron2, and Deep
+              Reinforcement Learning, achieving 92% target-reach accuracy.
+            </li>
+            <li>
+              Designed an automated precision-trimming system powered by CNN-generated trim profiles to guide
+              end-effector motion.
+            </li>
+            <li>
+              Executed end-to-end experimentation, including data collection, model training, and integration with
+              control pipelines, improving crop-processing efficiency and reducing labor requirements.
+            </li>
+          </ul>
+        </div>
 
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Robotics Engineer</div>
+            <div>Tech Cryptors · Mumbai, India</div>
+          </div>
+          <div class="timeline-header" style="margin-top: 0.15rem;">
+            <div>May 2021 – Jun 2022</div>
+          </div>
+          <ul>
+            <li>
+              Performed CAD design and inverse kinematics for a 6-DOF pick-and-place arm with a camera-based vision
+              system capable of assembling 15 components per minute, simulated in Gazebo.
+            </li>
+            <li>
+              Developed an educational self-balancing robot kit with IMU integration and PID control, enabling
+              hands-on learning for students through workshops.
+            </li>
+          </ul>
+        </div>
+
+        <div id="hiddenExperiences" style="display: none;">
           <div class="timeline-item">
             <div class="timeline-header">
-              <div class="timeline-title">Robotics Engineer</div>
+              <div class="timeline-title">Robotics Intern</div>
               <div>Tech Cryptors · Mumbai, India</div>
             </div>
             <div class="timeline-header" style="margin-top: 0.15rem;">
-              <div>May 2021 – Jun 2022</div>
+              <div>Dec 2020 – Apr 2021</div>
             </div>
             <ul>
-              <li>
-                Performed CAD design and inverse kinematics for a 6-DOF pick-and-place arm with a camera-based vision
-                system capable of assembling 15 components per minute, simulated in Gazebo.
-              </li>
-              <li>
-                Developed an educational self-balancing robot kit with IMU integration and PID control, enabling
-                hands-on learning for students through workshops.
-              </li>
+              <li>Hands-on training on programming languages (Python, C++), Raspberry Pi board, and different sensors.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div class="timeline-title">Mechatronics Intern</div>
+              <div>A-1 Fence Products Company Pvt. Ltd. · Mumbai, India</div>
+            </div>
+            <div class="timeline-header" style="margin-top: 0.15rem;">
+              <div>Jun 2017 – Jul 2017</div>
+            </div>
+            <ul>
+              <li>Deployed the advanced boom barrier system, incorporating automatic vehicle identification through number plate recognition.</li>
+              <li>Managed the project lifecycle, including requirement analysis, design, development, testing, and deployment.</li>
+              <li>Documented the development process.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div class="timeline-title">Research Intern</div>
+              <div>Indian Institute of Technology, Bombay · Mumbai, India</div>
+            </div>
+            <div class="timeline-header" style="margin-top: 0.15rem;">
+              <div>Dec 2016 – Jun 2017</div>
+            </div>
+            <ul>
+              <li>Contributed to an Octocopter drone project for organ transport, performed structure modeling and analysis for the drone using SolidWorks and Ansys.</li>
+              <li>Exposure to advanced technology in the field of rapid prototyping and manufacturing.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div class="timeline-title">Mechanical Design Intern</div>
+              <div>Scitech Centre, ACG Worldwide · Mumbai, India</div>
+            </div>
+            <div class="timeline-header" style="margin-top: 0.15rem;">
+              <div>Jun 2015 – Nov 2015</div>
+            </div>
+            <ul>
+              <li>Worked on mechanical systems and 3D computer-aided design using SolidWorks and Ansys Workbench.</li>
             </ul>
           </div>
         </div>
+
+        <button id="toggleExperiences" class="btn" style="margin-top: 0.5rem;">Show More</button>
       </div>
     </section>
 
@@ -931,6 +982,16 @@
       body.setAttribute("data-theme", current);
       localStorage.setItem("vipul-theme", current);
       updateThemeIcon();
+    });
+
+    // Toggle visibility for the last 4 experiences
+    const toggleExperiences = document.getElementById("toggleExperiences");
+    const hiddenExperiences = document.getElementById("hiddenExperiences");
+
+    toggleExperiences.addEventListener("click", () => {
+      const isHidden = hiddenExperiences.style.display === "none" || hiddenExperiences.style.display === "";
+      hiddenExperiences.style.display = isHidden ? "block" : "none";
+      toggleExperiences.textContent = isHidden ? "Show Less" : "Show More";
     });
   </script>
 </body>
