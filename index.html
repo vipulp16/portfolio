@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vipul Patel – Robotics Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --bg-alt: #11131a;
+      --accent: #f5b342;
+      --accent-soft: rgba(245, 179, 66, 0.12);
+      --text: #f5f5f5;
+      --muted: #a8b2d1;
+      --border: #25293a;
+      --max-width: 980px;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #15182b 0, #050509 38%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    body[data-theme="light"] {
+      --bg: #f5f5f7;
+      --bg-alt: #ffffff;
+      --accent: #c98600;
+      --accent-soft: rgba(201, 134, 0, 0.12);
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      background: radial-gradient(circle at top, #f3f4ff 0, #f9fafb 40%, #f3f4f6 100%);
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(5,5,10,0.95), rgba(5,5,10,0.75));
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    body[data-theme="light"] header {
+      background: linear-gradient(to bottom, rgba(249, 250, 251, 0.98), rgba(249, 250, 251, 0.9));
+      border-bottom-color: rgba(15, 23, 42, 0.06);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .nav-left span {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      align-items: center;
+    }
+
+    .nav-right a {
+      color: var(--muted);
+      position: relative;
+    }
+    .nav-right a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+    .nav-right a:hover::after {
+      width: 100%;
+    }
+
+    .theme-toggle {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(15, 23, 42, 0.5);
+      color: var(--text);
+      padding: 0.25rem 0.6rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    body[data-theme="light"] .theme-toggle {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(15, 23, 42, 0.12);
+    }
+
+    .theme-toggle span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    /* LAYOUT */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    section {
+      padding: 3.5rem 0 0;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0 0 0.5rem;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2::before {
+      content: "";
+      width: 20px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    .section-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.5rem 1.25rem;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+      margin-top: 1.5rem;
+    }
+
+    body[data-theme="light"] .section-card {
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1.5fr);
+      gap: 1.5rem;
+      align-items: center;
+      padding-top: 2.5rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.6rem, 3.5vw, 3.5rem); /* Style B */
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-sub {
+      font-size: 1.02rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .tag-pill {
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(245,179,66,0.4);
+      padding: 0.3rem 0.75rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .btn-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid currentColor;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #ffde91);
+      color: #1b1304;
+      border: none;
+      font-weight: 600;
+    }
+
+    body[data-theme="light"] .btn {
+      border-color: rgba(15, 23, 42, 0.12);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span strong {
+      color: var(--text);
+    }
+
+    .hero-photo-wrapper {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .hero-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid rgba(245, 179, 66, 0.7);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+      background: #111;
+    }
+
+    body[data-theme="light"] .hero-photo {
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+    }
+
+    /* GRID LAYOUTS */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.75rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 1.25rem;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .timeline-title {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    ul {
+      padding-left: 1.25rem;
+      margin: 0.35rem 0 0.75rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .pill {
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--muted);
+    }
+
+    body[data-theme="light"] .pill {
+      border-color: rgba(15, 23, 42, 0.12);
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1rem 1.1rem;
+      background: linear-gradient(135deg, rgba(13,16,30,0.9), rgba(9,10,20,0.95));
+    }
+
+    body[data-theme="light"] .project-card {
+      background: linear-gradient(135deg, #f9fafb, #ffffff);
+    }
+
+    .project-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .project-link-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid currentColor;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    /* CONTACT */
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      font-size: 0.95rem;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid var(--muted);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    body[data-theme="light"] footer {
+      border-top-color: rgba(15, 23, 42, 0.06);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-right {
+        gap: 0.75rem;
+      }
+      .nav-right a {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 1.5rem;
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-photo-wrapper {
+        justify-content: flex-start;
+        margin-top: 1.5rem;
+      }
+
+      .hero-photo {
+        width: 180px;
+        height: 180px;
+      }
+
+      .two-col,
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <span>Vipul Patel</span>
+      </div>
+      <div class="nav-right">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#volunteering">Volunteering</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="themeToggle" type="button">
+          <span>Mode</span>
+          <div id="themeIcon">🌙</div>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO / HOME -->
+    <section id="home">
+      <div class="hero">
+        <div>
+          <div class="hero-name">Vipul Patel</div>
+          <div class="hero-title">Robotics Engineer & Co-Founder, AgroPixel AI</div>
+          <p class="hero-sub">
+            Robotics engineer experienced in ROS2, perception, motion planning, SLAM, and robotic manipulators.
+            I design, deploy, and field-debug autonomous systems that work in real environments, from greenhouse
+            robots to multi-robot search-and-rescue platforms.
+          </p>
+
+          <div class="hero-tags">
+            <span class="tag-pill">ROS2 & MoveIt2</span>
+            <span class="tag-pill">Perception & SLAM</span>
+            <span class="tag-pill">Robotic Manipulators</span>
+            <span class="tag-pill">Field Deployment</span>
+          </div>
+
+          <div class="hero-buttons">
+            <!-- Make sure this file exists next to index.html -->
+            <a href="Vipul_Patel_Resume.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+              <span class="btn-icon">CV</span>
+              <span>View Resume</span>
+            </a>
+            <a href="#contact" class="btn">
+              <span class="btn-icon">✉</span>
+              <span>Contact Me</span>
+            </a>
+            <a href="https://www.linkedin.com/in/vipul16" class="btn" target="_blank" rel="noopener">
+              <span class="btn-icon">in</span>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span><strong>Current:</strong> Co-Founder & Head of Robotics · AgroPixel AI</span>
+            <span><strong>Location:</strong> Canton, Michigan, USA</span>
+            <span><strong>Focus:</strong> Autonomous robots for agriculture & real-world environments</span>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrapper">
+          <!-- Put your headshot here with this filename -->
+          <img src="vipul-profile.jpg" alt="Vipul Patel" class="hero-photo" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="section-card">
+        <p>
+          I’m a <strong>Robotics Engineer</strong> with experience across perception, motion planning, SLAM,
+          and robot calibration, with a particular focus on building and deploying autonomous systems that need to work
+          reliably in the field. My work spans greenhouse mobile manipulators, leaf-pruning robots, and autonomous
+          ground vehicles.
+        </p>
+        <p>
+          At <strong>AgroPixel AI</strong>, I lead the robotics stack for a greenhouse mobile manipulator powered by
+          xArm 7, Jetson Orin AGX, ROS2 Humble, MoveIt2, depth cameras, and LiDAR on a custom AMR base. I’m comfortable moving
+          from low-level wiring and motor drivers to ROS2 nodes, perception pipelines, system calibration, and deployment SOPs.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">ROS2 · Linux (Ubuntu)</span>
+          <span class="pill">RealSense & Orbbec depth</span>
+          <span class="pill">SLAM & motion planning</span>
+          <span class="pill">LeRobot & RL</span>
+          <span class="pill">Field debugging & deployment</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="section-card two-col">
+        <div>
+          <h3>Core Robotics & Software</h3>
+          <ul>
+            <li><strong>Programming:</strong> Python, C++, Ladder Logic</li>
+            <li><strong>Frameworks:</strong> ROS2, MoveIt2, Gazebo, RViz, Linux (Ubuntu), Bash</li>
+            <li><strong>Robotics:</strong> Kinematics, motion planning, SLAM, reinforcement learning, PID tuning</li>
+            <li><strong>Hardware:</strong> xArm 7, Stretch 3, SO-100 arm, AMRs, hub/servo motors, ZLAC8015D drivers</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Perception, ML & Prototyping</h3>
+          <ul>
+            <li><strong>Computer Vision:</strong> YOLOv5/v9, Detectron2, OpenCV, CNNs, U-Net, depth sensing</li>
+            <li><strong>ML/DL:</strong> PyTorch, TensorFlow, TensorRT, sklearn, LeRobot</li>
+            <li><strong>Sensors:</strong> RealSense D435i/D405, Orbbec Femto Bolt, LiDAR sensors</li>
+            <li><strong>Prototyping:</strong> 3D printing, custom mounts & fixtures, CAD (SolidWorks, Solid Edge, AutoCAD)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="section-card">
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Master of Engineering in Robotics (GPA: 3.7/4.0)</div>
+            <div>University of Maryland · College Park, MD</div>
+          </div>
+          <div class="timeline-header" style="margin-top: 0.15rem;">
+            <div>Aug 2022 – May 2024</div>
+          </div>
+          <ul>
+            <li>
+              Coursework: Robot Programming, Modeling & Controls of Robotic Systems, Machine Learning, Artificial Intelligence,
+              Human-Robot Interaction, Path Planning and Perception for Autonomous Robots, Robot Learning, Manufacturing and Automation.
+            </li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Bachelor of Engineering in Mechanical Engineering (GPA: 3.8/4.0)</div>
+            <div>Dwarkadas J. Sangvi College of Engineering · Mumbai, India</div>
+          </div>
+          <div class="timeline-header" style="margin-top: 0.15rem;">
+            <div>Jun 2017 – May 2020</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Diploma in Mechanical Engineering (GPA: 3.8/4.0)</div>
+            <div>SBM Polytechnic · Mumbai, India</div>
+          </div>
+          <div class="timeline-header" style="margin-top: 0.15rem;">
+            <div>Jun 2014 – May 2017</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="section-card two-col">
+        <div>
+          <h3>Industry Experience</h3>
+
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div class="timeline-title">Co-Founder, Head of Robotics</div>
+              <div>AgroPixel AI · Michigan, USA</div>
+            </div>
+            <div class="timeline-header" style="margin-top: 0.15rem;">
+              <div>Jul 2024 – Present</div>
+            </div>
+            <ul>
+              <li>
+                Led development and field deployment of a greenhouse mobile manipulator using xArm 7, Jetson Orin AGX,
+                ROS2 Humble, MoveIt2, RealSense/Orbbec depth cameras, hub-servo motor modules, and a custom AMR.
+              </li>
+              <li>
+                Developed ROS2 nodes in Python/C++ for motor control, RS-485/USB communication, teleoperation,
+                perception pipelines, and sensor data processing on Linux/Ubuntu systems.
+              </li>
+              <li>
+                Built depth-based perception pipelines with RealSense D435i, Orbbec Femto Bolt, and LiDAR for detection,
+                alignment, and pose estimation in real greenhouse-like environments.
+              </li>
+              <li>
+                Performed eye-in-hand and camera-to-base calibration to improve end-effector accuracy and overall
+                manipulation precision.
+              </li>
+              <li>
+                Integrated the LeRobot learning framework with ROS2/MoveIt2 to train and evaluate pick-and-place
+                policies, improving grasp success and task consistency.
+              </li>
+              <li>
+                Configured ZLAC8015D drivers, hub motors, custom grippers, and SO-100 arm hardware; executed wiring,
+                field debugging, and full electro-mechanical integration.
+              </li>
+              <li>
+                Managed and guided a three-member robotics team, coordinating development tasks and accelerating iteration
+                cycles toward deployment-ready releases.
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div class="timeline-title">Robotics Research Engineer</div>
+              <div>IPS Assembly · Michigan, USA</div>
+            </div>
+            <div class="timeline-header" style="margin-top: 0.15rem;">
+              <div>Jan 2024 – May 2024</div>
+            </div>
+            <ul>
+              <li>
+                Built a dataset of 5,000+ images using RealSense D405 and supported development of an automated
+                leaf-pruning robot for hydroponic facilities with CV and ML pipelines.
+              </li>
+              <li>
+                Deployed Hello Robot’s Stretch 3 as a proof-of-concept platform using YOLOv9, Detectron2, and Deep
+                Reinforcement Learning, achieving 92% target-reach accuracy.
+              </li>
+              <li>
+                Designed an automated precision-trimming system powered by CNN-generated trim profiles to guide
+                end-effector motion.
+              </li>
+              <li>
+                Executed end-to-end experimentation, including data collection, model training, and integration with
+                control pipelines, improving crop-processing efficiency and reducing labor requirements.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3>Earlier Experience</h3>
+
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div class="timeline-title">Robotics Engineer</div>
+              <div>Tech Cryptors · Mumbai, India</div>
+            </div>
+            <div class="timeline-header" style="margin-top: 0.15rem;">
+              <div>May 2021 – Jun 2022</div>
+            </div>
+            <ul>
+              <li>
+                Performed CAD design and inverse kinematics for a 6-DOF pick-and-place arm with a camera-based vision
+                system capable of assembling 15 components per minute, simulated in Gazebo.
+              </li>
+              <li>
+                Developed an educational self-balancing robot kit with IMU integration and PID control, enabling
+                hands-on learning for students through workshops.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="section-card">
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-title">Greenhouse Mobile Manipulator (AgroPixel AI)</div>
+            <div class="project-meta">ROS2 · xArm 7 · Jetson Orin AGX · Depth & LiDAR</div>
+            <p>
+              Designed and deployed a greenhouse mobile manipulator for leaf pruning using xArm 7, a custom AMR base,
+              RealSense/Orbbec depth cameras, and LiDAR. Implemented ROS2 control, perception pipelines, calibration
+              routines, and LeRobot-based learning for reliable manipulation in real environments.
+            </p>
+            <div class="pill-row">
+              <span class="pill">ROS2 Humble</span>
+              <span class="pill">MoveIt2</span>
+              <span class="pill">Camera calibration</span>
+            </div>
+            <a href="https://drive.google.com/YOUR-AGROPIXEL-PROJECT-LINK" class="project-link" target="_blank" rel="noopener">
+              <span class="project-link-icon">↗</span>
+              <span>View project on Drive</span>
+            </a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">Early Wildfire Detection & Segmentation</div>
+            <div class="project-meta">Xception-Lite · U-Net · ML · Python · UMD</div>
+            <p>
+              Developed an early wildfire detection pipeline using a lightweight Xception-Lite classifier, reaching
+              strong accuracy on the IEEE FLAME dataset, and used U-Net for segmentation to support early
+              disaster-response strategies and environmental monitoring.
+            </p>
+            <div class="pill-row">
+              <span class="pill">PyTorch</span>
+              <span class="pill">Image classification</span>
+              <span class="pill">Segmentation</span>
+            </div>
+            <a href="https://drive.google.com/YOUR-WILDFIRE-PROJECT-LINK" class="project-link" target="_blank" rel="noopener">
+              <span class="project-link-icon">↗</span>
+              <span>View project on Drive</span>
+            </a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">Autonomous Retrieval UGV</div>
+            <div class="project-meta">4WD UGV · SLAM · RPi · UMD</div>
+            <p>
+              Built a 4WD UGV with IMU, wheel encoders, and an RPi camera; implemented motor control, object detection,
+              wireless comms, and SLAM-based navigation, achieving ~93% retrieval success with real-time mapping and
+              obstacle avoidance.
+            </p>
+            <div class="pill-row">
+              <span class="pill">SLAM</span>
+              <span class="pill">Autonomous nav</span>
+              <span class="pill">Embedded systems</span>
+            </div>
+            <a href="https://drive.google.com/YOUR-UGV-PROJECT-LINK" class="project-link" target="_blank" rel="noopener">
+              <span class="project-link-icon">↗</span>
+              <span>View project on Drive</span>
+            </a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">Multirobot Search and Rescue</div>
+            <div class="project-meta">ROS2 · ACO · YOLOv5 · UMD</div>
+            <p>
+              Implemented collaborative navigation using Ant Colony Optimization to reduce search time by ~10%, integrated
+              YOLOv5 for ~95% accurate human detection, and built a CV module achieving strong accuracy for object
+              detection in search-and-rescue scenarios.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Multi-robot systems</span>
+              <span class="pill">Optimization</span>
+              <span class="pill">Computer vision</span>
+            </div>
+            <a href="https://drive.google.com/YOUR-MULTIROBOT-PROJECT-LINK" class="project-link" target="_blank" rel="noopener">
+              <span class="project-link-icon">↗</span>
+              <span>View project on Drive</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOLUNTEERING -->
+    <section id="volunteering">
+      <h2>STEM Volunteering</h2>
+      <div class="section-card">
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Technical Judge – FIRST Robotics Competition</div>
+            <div>2024 – Present</div>
+          </div>
+          <ul>
+            <li>
+              Judge at District, State, and World Championship levels, evaluating robot design, technical execution, and
+              team documentation while mentoring students toward STEM careers.
+            </li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Technical Judge – Intelligent Ground Vehicle Competition (IGVC)</div>
+            <div>2025</div>
+          </div>
+          <ul>
+            <li>
+              Evaluated autonomous ground vehicle platforms at Oakland University, MI, focusing on navigation,
+              perception, and systems integration.
+            </li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Technical Judge – Robofest</div>
+            <div>2025</div>
+          </div>
+          <ul>
+            <li>
+              Supported Robofest at Lawrence Technological University, assessing student-built robots and encouraging
+              robust engineering practices and creativity.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Get in touch</h2>
+      <div class="section-card">
+        <p>
+          Open to roles in <strong>robotics engineering, perception, motion planning, and field deployment</strong>, as
+          well as collaborations on autonomous systems for agriculture and real-world environments.
+        </p>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-icon">✉</span>
+            <span>Email: <a href="mailto:vipul.pa4@gmail.com">vipul.pa4@gmail.com</a></span>
+          </li>
+          <li>
+            <span class="contact-icon">in</span>
+            <span>LinkedIn: <a href="https://www.linkedin.com/in/vipul16" target="_blank" rel="noopener">linkedin.com/in/vipul16</a></span>
+          </li>
+          <li>
+            <span class="contact-icon">{"</>"}</span>
+            <span>GitHub (optional): <a href="https://github.com/" target="_blank" rel="noopener">github.com/</a></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Vipul Patel. Built with HTML & CSS.
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle with localStorage
+    const body = document.body;
+    const toggle = document.getElementById("themeToggle");
+    const icon = document.getElementById("themeIcon");
+
+    const storedTheme = localStorage.getItem("vipul-theme");
+    if (storedTheme === "light" || storedTheme === "dark") {
+      body.setAttribute("data-theme", storedTheme);
+    }
+
+    function updateThemeIcon() {
+      const theme = body.getAttribute("data-theme");
+      icon.textContent = theme === "light" ? "🌙" : "☀️";
+    }
+
+    updateThemeIcon();
+
+    toggle.addEventListener("click", () => {
+      const current = body.getAttribute("data-theme") === "light" ? "dark" : "light";
+      body.setAttribute("data-theme", current);
+      localStorage.setItem("vipul-theme", current);
+      updateThemeIcon();
+    });
+  </script>
+</body>
+</html>
